@@ -1,32 +1,72 @@
 # pi0player
-Steps and code to turn a Pi Zero into an audio player
-## Equipment
-1. USB powered speaker
-2. Raspberry Pi Zero
+Turn a Raspberry Pi Zero into a lightweight audio player that automatically starts playing music on boot.
+
+## Requirements
+1. Raspberry Pi Zero + power supply
+2. USB-powered speaker
+3. MicroSD card + reader
 
 ## Setup
-1. Use Raspberry Pi Imager to install Raspberry OS Lite
-2. Boot Pi Zero and Login
-3. Use `raspi-config` to enter config options
-4. Choose System Settings > Auto Login
+1. Use **Raspberry Pi Imager** to install **Raspberry OS Lite** on the SD Card.
+2. Connect USB speaker.
+3. Boot Pi Zero and log in.
+4. Enter config
+   ```
+   raspi-config
+   ```
+    * Go to **System Options** > Boot / Auto Login.
+    * Enable **Console Autologin** so the Pi logs in automatically on startup.
 
 ## Install Dependencies
-1. Update Linux w/ `apt-get update`
-2. Install mpg123 w/ `sudo apt install mpg123`
-3. Optional: Install vim w/ `sudo apt install vim`
+1. Update the system
+   ```
+   apt-get update
+   ```
+3. Install [**mpg123**](https://www.mpg123.de/)
+   ```
+   sudo apt install mpg123
+   ```
+5. Optional: Install [**Vim**](https://github.com/vim/vim):
+   ```
+   sudo apt install vim
+   ```
 
-## Save Audio
-1. SSH into Pi and save audio
+## Add Audio Files
+1. use SSH or another transfer method to copy audio files to the Pi.
+     * Example: `scp song.mp3 pi@<ip-address>:/home/pi/`
 
 ## Create Startup script to autoplay music
-1. Create .sh file
-2. chmod +x [name].sh
-3. crontab -e
-4. @reboot path/to/file.sh
-
-## Choose correct sound card
-Check sound card devices `aplay -l`
-1. `sudo [nano|vim] ~/.asoundrc`
-2. add `pcm.!default { type hw card 1 [or 0] }`
-3. add `ctl.!default { type hw card 1 [or 0] }`
-4. Run sh script to check that you hear the sound from the correct output.
+1. Create a script file (e.g. player.sh):
+   ```
+   vim ~/player.sh
+   ```
+2. Make it executable:
+   ```
+   chmod +x player.sh
+   ```
+3. Schedule it to run on boot: (do not use sudo)
+   ```
+   crontab -e
+   ```
+5. Add this line at the bottom:
+   ```
+   @reboot ~/player.sh
+   ```
+## Configure the Audio Output
+1. Check available sound devices
+   ```
+   aplay -l
+   ```
+2. Create or edit the config file:
+   ```
+   sudo vim ~/.asoundrc
+   ```
+3. Set the default card to the USB device. (Not HDMI) In my case it was listed as '1'
+   ```
+   pcm.!default { type hw card 1 }
+   ctl.!default { type hw card 1 }
+   ```
+4. Run your script to confirm sound plays through the desired output:
+   ```
+   ./player.sh
+   ```
