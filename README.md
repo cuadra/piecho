@@ -40,11 +40,19 @@ Turn a Raspberry Pi Zero into a lightweight audio player that automatically star
    ```
    vim ~/player.sh
    ```
-2. Make it executable:
+   * Insert the following code:
+      ```
+      while true
+	      do
+		      mpg123 ~/audio.mp3
+		      sleep 300 # wait 5 minutes
+	      done
+      ```
+3. Make it executable:
    ```
    chmod +x player.sh
    ```
-3. Schedule it to run on boot: (do not use sudo)
+4. Schedule it to run on boot: (do not use sudo)
    ```
    crontab -e
    ```
