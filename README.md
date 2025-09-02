@@ -33,7 +33,7 @@ Turn a Raspberry Pi Zero into a lightweight audio player that automatically star
 
 ## Add Audio Files
 1. use SSH or another transfer method to copy audio files to the Pi.
-     * Example: `scp song.mp3 pi@<ip-address>:/home/pi/`
+     * Example: `scp audio.mp3 pi@<ip-address>:~/`
 
 ## Create Startup script to autoplay music
 1. Create a script file (e.g. player.sh):
