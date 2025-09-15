@@ -14,13 +14,11 @@ Turn a Raspberry Pi Zero into a lightweight audio player that automatically star
    ```
    raspi-config
    ```
-    * Go to **System Options** > Boot / Auto Login.
-    * Enable **Console Autologin** so the Pi logs in automatically on startup.
-
+    * Go to **System Options** > Auto Login.
 ## Install Dependencies
 1. Update the system
    ```
-   apt-get update
+   sudo apt-get update
    ```
 3. Install [**mpg123**](https://www.mpg123.de/)
    ```
@@ -78,3 +76,5 @@ Turn a Raspberry Pi Zero into a lightweight audio player that automatically star
    ```
    ./player.sh
    ```
+## Troubleshooting
+If mpg123 delivers an error similar to 'unable to set up output format' then you are attempting to play the audio through the wrong card.
