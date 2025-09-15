@@ -1,5 +1,3 @@
-# pi0player
-Turn a Raspberry Pi Zero into a lightweight audio player that automatically starts playing music on boot.
 
 ## Requirements
 1. Raspberry Pi Zero + power supply
@@ -59,7 +57,7 @@ Turn a Raspberry Pi Zero into a lightweight audio player that automatically star
    @reboot ~/player.sh
    ```
 ## Configure the Audio Output
-1. Check available sound devices
+1. Check available sound devices (Connect your speakers if you havent done so yet.)
    ```
    aplay -l
    ```
@@ -67,7 +65,7 @@ Turn a Raspberry Pi Zero into a lightweight audio player that automatically star
    ```
    sudo vim ~/.asoundrc
    ```
-3. Set the default card to the USB device. (Not HDMI) In my case it was listed as '1'
+3. Set the default card to the USB device. (Not HDMI) In my case it was listed as '1' (The output number may change once you disconnect the HDMI.)
    ```
    pcm.!default { type hw card 1 }
    ctl.!default { type hw card 1 }
