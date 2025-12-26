@@ -1,3 +1,6 @@
+# Pi Echo or Piecho, your choice :)
+## About
+This project started as a need to play repeating Halloween sound effects at configurable intervals for seasonal decor.
 
 ## Requirements
 1. Raspberry Pi Zero + power supply
