@@ -1,11 +1,15 @@
-# Pi Echo or Piecho, your choice :)
+# Pi Echo
 ## About
-This project started as a need to play repeating Halloween sound effects at configurable intervals for seasonal decor.
+This project started as a need to play repeating Halloween sound effects at configurable intervals.
+
+<img width="1079" height="789" alt="image" src="https://github.com/user-attachments/assets/78387efb-800d-49f5-94bb-221a638aec6f" />
+
 
 ## Requirements
-1. Raspberry Pi Zero + power supply
-2. USB-powered speaker
-3. MicroSD card + reader
+1. Raspberry Pi Zero
+2. Appropriate power supply
+3. USB-powered speaker
+4. MicroSD card (+reader)
 
 ## Setup
 1. Use **Raspberry Pi Imager** to install **Raspberry OS Lite** on the SD Card.
